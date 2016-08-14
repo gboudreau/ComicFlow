@@ -176,15 +176,15 @@
   // Setup initial user defaults
   NSMutableDictionary* defaults = [[NSMutableDictionary alloc] init];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_LibraryVersion];
-  [defaults setObject:[NSNumber numberWithInteger:kServerMode_Trial] forKey:kDefaultKey_ServerMode];
-  [defaults setObject:[NSNumber numberWithInteger:kTrialMaxUploads] forKey:kDefaultKey_UploadsRemaining];
+  [defaults setObject:[NSNumber numberWithInteger:kServerMode_Full] forKey:kDefaultKey_ServerMode];
+  //[defaults setObject:[NSNumber numberWithInteger:kTrialMaxUploads] forKey:kDefaultKey_UploadsRemaining];
   [defaults setObject:[NSNumber numberWithBool:NO] forKey:kDefaultKey_ScreenDimmed];
   [defaults setObject:[NSNumber numberWithDouble:0.0] forKey:kDefaultKey_RootTimestamp];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_RootScrolling];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_CurrentCollection];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_CurrentComic];
   [defaults setObject:[NSNumber numberWithInteger:kSortingMode_ByStatus] forKey:kDefaultKey_SortingMode];
-  [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_LaunchCount];
+  [defaults setObject:[NSNumber numberWithInteger:-1] forKey:kDefaultKey_LaunchCount];
   [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
   [defaults release];
   

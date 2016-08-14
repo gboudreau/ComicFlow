@@ -974,7 +974,7 @@
 				LastUpgradeCheck = 0720;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = 88W3E55T4B;
+						DevelopmentTeam = K239GL356L;
 					};
 				};
 			};
@@ -1208,6 +1208,7 @@
 					"-lwebp",
 					"-lFlurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pommepause.comicflow;
 				PRODUCT_NAME = ComicFlow;
 			};
 			name = Debug;
@@ -1242,6 +1243,7 @@
 					"-lwebp",
 					"-lFlurry",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pommepause.comicflow;
 				PRODUCT_NAME = ComicFlow;
 			};
 			name = Release;
