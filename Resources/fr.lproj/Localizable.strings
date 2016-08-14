@@ -1,4 +1,4 @@
-"SETTINGS_BUTTON" = "Paramètres";
+"SETTINGS_BUTTON" = "Réglages";
 
 "INFO_FORMAT" = "BDs: %i | Séries: %i | Base données: %.0f MO";
 "VERSION_FORMAT" = "ComicFlow Version %@";
@@ -72,7 +72,7 @@
 "OFFLINE_ALERT_BUTTON" = "OK";
 
 "DISABLED_ALERT_TITLE" = "Achats non autorisés !";
-"DISABLED_ALERT_MESSAGE" = "Ce périphérique ne permet pas les achats intégrés. Veuillez vérifier les blocages dans l'appli Paramètres.";
+"DISABLED_ALERT_MESSAGE" = "Ce périphérique ne permet pas les achats intégrés. Veuillez vérifier les restrictions dans l'appli Réglages.";
 "DISABLED_ALERT_BUTTON" = "OK";
 
 "BUSY_ALERT_TITLE" = "Achat en cours !";
@@ -90,5 +90,5 @@
 "SERVER_NAME_FORMAT" = "Serveur web ComicFlow %@ (%@)";
 "SERVER_TITLE" = "Serveur web ComicFlow";
 "SERVER_CONTENT" = "<div class=\"alert alert-success alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><strong>Vous êtes connecté à l'appli ComicFlow sur votre iPad.</strong> Glissez vos fichiers de BDs (%@) dans cette fenêtre, ou utilisez le bouton \"Télécharger fichiers&hellip;\", pour importer vos BDs dans ComicFlow. Créez des dossiers dans la racine, et importez vos BDs dans ces dossiers pour créer des séries. (Les sous-dossiers ne sont pas supportés.)<br/>Vous devez laisser l'appli ouverte sur votre iPad pendant le téléchargement.</div>";
-"SERVER_LIMITED_CONTENT" = "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><strong>L'importation de BDs en utilisant le serveur web ComicFlow est limité à %i fichiers, après quoi vous recevrez une erreur &quot;Forbidden&quot;.</strong> Appuyez le bouton &quot;Acheter&quot; dans les paramètres de l'appli pour enlever cette limite. Vous verrez le prix et vous devrez confirmer l'achat avant que l'achat soit complété.</div>";
+"SERVER_LIMITED_CONTENT" = "<div class=\"alert alert-danger alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><strong>L'importation de BDs en utilisant le serveur web ComicFlow est limité à %i fichiers, après quoi vous recevrez une erreur &quot;Forbidden&quot;.</strong> Appuyez le bouton &quot;Acheter&quot; dans les Réglages de l'appli pour enlever cette limite. Vous verrez le prix et vous devrez confirmer l'achat avant que l'achat soit complété.</div>";
 "SERVER_FOOTER_FORMAT" = "%@ &mdash; ComicFlow Version %@";
