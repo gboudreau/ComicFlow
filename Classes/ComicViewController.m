@@ -305,11 +305,11 @@
     CGPoint location = [recognizer locationInView:recognizer.view];
     // Left margin
     if (location.x <= bounds.size.width * kLeftZoneRatio) {
-      [_documentView goToPreviousPage:NO];
+      [_documentView goToPreviousPage:YES];
     }
     // Right margin
     else if (location.x >= bounds.size.width * kRightZoneRatio) {
-      [_documentView goToNextPage:NO];
+      [_documentView goToNextPage:YES];
     }
     // Center
     else {
