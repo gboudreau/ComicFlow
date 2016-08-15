@@ -20,6 +20,7 @@
 "MARK_ALL_NEW" = "Mark All New";
 "DELETE_ALL" = "Delete All";
 "DIM_SCREEN" = "Dim Screen";
+"HIDE_READ" = "Hide Read";
 "UPDATE_LIBRARY" = "Update Library";
 "FORCE_UPDATE_LIBRARY" = "Recreate Library";
 "SHOW_LOG" = "Show Log";

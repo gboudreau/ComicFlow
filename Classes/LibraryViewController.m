@@ -399,6 +399,7 @@ static void __DisplayQueueCallBack(void* info) {
   [self.markReadButton setTitle:NSLocalizedString(@"MARK_ALL_READ", nil) forState:UIControlStateNormal];
   [self.markNewButton setTitle:NSLocalizedString(@"MARK_ALL_NEW", nil) forState:UIControlStateNormal];
   [self.dimScreenLabel setText:NSLocalizedString(@"DIM_SCREEN", nil)];
+  [self.hideReadLabel setText:NSLocalizedString(@"HIDE_READ", nil)];
   [self.updateButton setTitle:NSLocalizedString(@"UPDATE_LIBRARY", nil) forState:UIControlStateNormal];
   [self.forceUpdateButton setTitle:NSLocalizedString(@"FORCE_UPDATE_LIBRARY", nil) forState:UIControlStateNormal];
   [self.showLogButton setTitle:NSLocalizedString(@"SHOW_LOG", nil) forState:UIControlStateNormal];
@@ -450,6 +451,7 @@ static void __DisplayQueueCallBack(void* info) {
   _updateButton.enabled = !updating;
   _forceUpdateButton.enabled = !updating;
   _dimmingSwitch.on = [(AppDelegate*)[AppDelegate sharedInstance] isScreenDimmed];
+  self.hideReadSwitch.on = [(AppDelegate*)[AppDelegate sharedInstance] hideRead];
   
   if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_7_0) {
     [_purchaseButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
@@ -1014,6 +1016,14 @@ static void __ArrayApplierFunction(const void* value, void* context) {
 
 - (IBAction) toggleDimming:(id)sender {
   [(AppDelegate*)[AppDelegate sharedInstance] setScreenDimmed:_dimmingSwitch.on];
+}
+
+- (IBAction) toggleHideRead:(id)sender {
+    [(AppDelegate*)[AppDelegate sharedInstance] setHideRead:self.hideReadSwitch.on];
+}
+
+- (void)setHideRead:(BOOL)flag {
+    [self _reloadCurrentCollection];
 }
 
 - (IBAction) purchase:(id)sender {

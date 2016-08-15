@@ -179,6 +179,7 @@
   [defaults setObject:[NSNumber numberWithInteger:kServerMode_Full] forKey:kDefaultKey_ServerMode];
   //[defaults setObject:[NSNumber numberWithInteger:kTrialMaxUploads] forKey:kDefaultKey_UploadsRemaining];
   [defaults setObject:[NSNumber numberWithBool:NO] forKey:kDefaultKey_ScreenDimmed];
+  [defaults setObject:[NSNumber numberWithBool:NO] forKey:kDefaultKey_HideRead];
   [defaults setObject:[NSNumber numberWithDouble:0.0] forKey:kDefaultKey_RootTimestamp];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_RootScrolling];
   [defaults setObject:[NSNumber numberWithInteger:0] forKey:kDefaultKey_CurrentCollection];
@@ -319,6 +320,10 @@
   return [[NSUserDefaults standardUserDefaults] boolForKey:kDefaultKey_ScreenDimmed];
 }
 
+- (BOOL)hideRead {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kDefaultKey_HideRead];
+}
+
 - (void) setScreenDimmed:(BOOL)flag {
   if (flag) {
     _dimmingWindow.hidden = NO;
@@ -331,6 +336,11 @@
     }
   }];
   [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kDefaultKey_ScreenDimmed];
+}
+
+- (void)setHideRead:(BOOL)flag {
+    [[NSUserDefaults standardUserDefaults] setBool:flag forKey:kDefaultKey_HideRead];
+    [(LibraryViewController *) self.viewController setHideRead:flag];
 }
 
 @end

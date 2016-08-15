@@ -175,23 +175,34 @@ typedef enum {
   return connection;
 }
 
+-(NSString *)getWhereClause:(NSString *)whereClause {
+    BOOL hideReadComics = [[NSUserDefaults standardUserDefaults] boolForKey:kDefaultKey_HideRead];
+    if (hideReadComics) {
+        // status = -1 means NEW
+        // status = 0 means READ
+        // status > 0 means READING (page where we stopped)
+        return [NSString stringWithFormat:@"status != 0 AND %@", whereClause];
+    }
+    return whereClause;
+}
+
 - (NSArray*) fetchAllComicsByName {
-  NSArray* results = [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:@"1 ORDER BY name ASC" limit:0];
+    NSArray* results = [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:[self getWhereClause:@"1 ORDER BY name ASC"] limit:0];
   return [results sortedArrayUsingComparator:^NSComparisonResult(Comic* comic1, Comic* comic2) {
     return [comic1.name localizedStandardCompare:comic2.name];
   }];
 }
 
 - (NSArray*) fetchAllComicsByDate {
-  return [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:@"1 ORDER BY time DESC" limit:0];
+  return [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:[self getWhereClause:@"1 ORDER BY time DESC"] limit:0];
 }
 
 - (NSArray*) fetchAllComicsByStatus {
-  return [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:@"1 ORDER BY status>0 DESC, status==-1 DESC, time DESC" limit:0];
+  return [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:[self getWhereClause:@"1 ORDER BY status>0 DESC, status==-1 DESC, time DESC"] limit:0];
 }
 
 - (NSArray*) fetchComicsInCollection:(Collection*)collection {
-  NSArray* results = [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:[NSString stringWithFormat:@"collection=%i", collection.sqlRowID] limit:0];
+  NSArray* results = [self fetchObjectsOfClass:[Comic class] withSQLWhereClause:[self getWhereClause:[NSString stringWithFormat:@"collection=%i", collection.sqlRowID]] limit:0];
   return [results sortedArrayUsingComparator:^NSComparisonResult(Comic* comic1, Comic* comic2) {
     return [comic1.name localizedStandardCompare:comic2.name];
   }];

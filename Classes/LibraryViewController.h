@@ -78,9 +78,12 @@
 @property(nonatomic, retain) IBOutlet UILabel* dimScreenLabel;
 @property(nonatomic, retain) IBOutlet UIButton* showLogButton;
 @property(nonatomic, retain) IBOutlet UILabel* webServerMenuTitle;
+@property(nonatomic, retain) IBOutlet UILabel* hideReadLabel;
+@property(nonatomic, retain) IBOutlet UISwitch* hideReadSwitch;
 - (id) initWithWindow:(UIWindow*)window;
 - (void) updatePurchase;
 - (void) saveState;
+- (void)setHideRead:(BOOL)flag;
 @end
 
 @interface LibraryViewController (IBActions)
@@ -92,6 +95,7 @@
 - (IBAction) markAllNew:(id)sender;
 - (IBAction) showLog:(id)sender;
 - (IBAction) toggleDimming:(id)sender;
+- (IBAction) toggleHideRead:(id)sender;
 - (IBAction) purchase:(id)sender;
 - (IBAction) restore:(id)sender;
 @end

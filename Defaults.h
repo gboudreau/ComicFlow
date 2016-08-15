@@ -26,6 +26,7 @@ typedef enum {
 #define kDefaultKey_UploadsRemaining @"uploadsRemaining"
 
 #define kDefaultKey_ScreenDimmed @"screenDimmed"
+#define kDefaultKey_HideRead @"hideRead"
 
 #define kDefaultKey_RootTimestamp @"rootTimestamp"
 #define kDefaultKey_RootScrolling @"rootScrolling"

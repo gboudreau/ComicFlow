@@ -20,6 +20,7 @@
 "MARK_ALL_NEW" = "Marquer tout nouveau";
 "DELETE_ALL" = "Effacer tous";
 "DIM_SCREEN" = "Assombrir l'écran";
+"HIDE_READ" = "Cacher BDs lues";
 "UPDATE_LIBRARY" = "Mise à jour bibliothèque";
 "FORCE_UPDATE_LIBRARY" = "Re-créer bilbiothèque";
 "SHOW_LOG" = "Afficher log";

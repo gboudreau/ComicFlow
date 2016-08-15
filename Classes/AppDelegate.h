@@ -33,6 +33,7 @@
   BOOL _purchasing;
 }
 @property(nonatomic, getter=isScreenDimmed) BOOL screenDimmed;
+@property(nonatomic, getter=hideRead) BOOL hideRead;
 + (AppDelegate*) sharedDelegate;
 - (void) updateLibrary;
 @end
