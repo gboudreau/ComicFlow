@@ -100,11 +100,19 @@
 
 @end
 
+@interface ComicViewController()
+
+@property (atomic) CGFloat currentZoomScale;
+
+@end
+
 @implementation ComicViewController
 
 @synthesize navigationBar=_navigationBar, navigationControl=_navigationControl, contentView=_contentView;
 
 - (id) initWithComic:(Comic*)comic {
+    self.currentZoomScale = -1;
+    
   [CATransaction begin];
   [[AppDelegate sharedInstance] showSpinnerWithMessage:NSLocalizedString(@"SPINNER_MESSAGE", nil) fullScreen:NO animated:YES];
   [CATransaction flush];
@@ -363,8 +371,22 @@
   return YES;
 }
 
+- (void) documentViewWillChangePage:(DocumentView*)documentView {
+    // Remember zoom level!
+    ComicPageView* pageView = (ComicPageView *) documentView.selectedPageView;
+    if (pageView) {
+        self.currentZoomScale = pageView.zoomScale;
+    }
+}
+
 - (void) documentViewDidChangePage:(DocumentView*)documentView {
   _navigationControl.currentPage = _documentView.selectedPageIndex;
+    
+    if (self.currentZoomScale != -1) {
+        ComicPageView* pageView = (ComicPageView *) documentView.selectedPageView;
+        pageView.zoomScale = self.currentZoomScale;
+        [pageView setContentOffset:CGPointMake(0, 0) animated:NO];
+    }
   
   if (_documentView.pageViews) {
     [[AppDelegate sharedDelegate] logPageView];
