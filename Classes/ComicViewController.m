@@ -180,7 +180,11 @@
 }
 
 - (void) saveState {
-  NSInteger status = (_documentView.selectedPageIndex < _documentView.pageViews.count - 1 ? _documentView.selectedPageIndex : 0);
+    if (_documentView.selectedPageIndex == 0) {
+        // Don't save status = 0; that has a special meaning (READ)
+        return;
+    }
+  NSInteger status = (_documentView.selectedPageIndex < _documentView.pageViews.count - 1 ? _documentView.selectedPageIndex : 0); // 0 means READ
   if (status != _comic.status) {
     _comic.status = (int)status;
     [[LibraryConnection mainConnection] updateObject:_comic];
