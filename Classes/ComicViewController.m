@@ -252,6 +252,8 @@
   
   self.view.clipsToBounds = YES;  // Required on iOS 7
   
+  self.navigationBar.topItem.title = NSLocalizedString(@"LIBRARY_TITLE", nil);
+    
   UINavigationItem* item = [[UINavigationItem alloc] initWithTitle:[_path lastPathComponent]];
   [_navigationBar pushNavigationItem:item animated:NO];
   [item release];
